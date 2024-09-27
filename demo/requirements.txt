@@ -1,7 +1,10 @@
 Flask~=2.2.2
 Flask-Cors===3.0.9
-selenium-wire==2.1.2
-#chromedriver-binary==86.0.4240.22
-chromedriver-binary==98.0.4758.80
+# selenium-wire==2.1.2
+selenium-wire==5.1.0
+blinker<1.8.0
+# chromedriver-binary==86.0.4240.22
+# chromedriver-binary==98.0.4758.80
+chromedriver-binary==131.0.6741.0
 
 beautifulsoup4~=4.10.0

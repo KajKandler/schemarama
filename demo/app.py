@@ -30,7 +30,7 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("window-size=1024,768")
 chrome_options.add_argument("--no-sandbox")
 
-browser = webdriver.Chrome(chrome_options=chrome_options)
+browser = webdriver.Chrome(options=chrome_options)
 
 
 @app.route('/')
