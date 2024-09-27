@@ -7,7 +7,7 @@ const ShExRenderer = ShExHTML($, {Renderer: function () {
 }})
 
 $(document).ready(async () => {
-    await $.get(`validation/shex/full.json`, (shexShapes) => {
+    await $.get(`shex/shapes`, (shexShapes) => {
         shexShapes.shapes.forEach(shape => {
             shexShapesMap[shape.id] = shape;
         });
