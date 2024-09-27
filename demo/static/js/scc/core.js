@@ -29,12 +29,12 @@ $(document).ready(async () => {
         ip = e.ip;
     });
     [shaclShapes, subclasses, shexShapes, hierarchy, shapeToService, undefined] = await Promise.all([
-      fetch(`validation/shacl/full.shacl`).then(resp => resp.text()),
-      fetch(`validation/shacl/subclasses.ttl`).then(resp => resp.text()),
-      fetch(`validation/shex/full.json`).then(resp => resp.json()),
-      fetch(`hierarchy.json`).then(resp => resp.json()),
-      fetch(`validation/shapeToService.json`).then(resp => resp.json()),
-      fetch(`tests.json`).then(resp => resp.json()).then(j => initTests(j.tests)),
+      fetch(`/shacl/shapes`).then(resp => resp.text()),
+      fetch(`/shacl/subclasses`).then(resp => resp.text()),
+      fetch(`/shex/shapes`).then(resp => resp.json()),
+      fetch(`/hierarchy`).then(resp => resp.json()),
+      fetch(`/services/map`).then(resp => resp.json()),
+      fetch(`/tests`).then(resp => resp.json()).then(j => initTests(j.tests)),
     ]);
     constructHierarchySelector(hierarchy, 0);
     shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});

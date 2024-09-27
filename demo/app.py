@@ -30,7 +30,7 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("window-size=1024,768")
 chrome_options.add_argument("--no-sandbox")
 
-browser = webdriver.Chrome(chrome_options=chrome_options)
+browser = webdriver.Chrome(options=chrome_options)
 
 
 @app.route('/')
@@ -64,13 +64,13 @@ def tests():
 
 @app.route('/shex/shapes')
 def shex_shapes():
-    shapes_path = os.path.join(os.curdir, 'validation', 'shex', 'full.json')
+    shapes_path = os.path.join(os.curdir, 'validation', 'shex', 'full.shex.json')
     return send_file(shapes_path)
 
 
 @app.route('/shacl/shapes')
 def shacl_shapes_full():
-    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', 'full.shacl')
+    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', 'full.shacl.json')
     return send_file(shacl_path)
 
 
