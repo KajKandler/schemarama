@@ -36,24 +36,24 @@ def demo():
     return render_template('scc.html')
 
 
-@app.route('/shapes.html')
+@app.route('/shapes')
 def shapes():
-    return render_template('shapes.html')
+    return render_template('shapes')
 
 
-@app.route('/hierarchy.json')
+@app.route('/hierarchy')
 def services():
     return config.hierarchy
 
 
-@app.route('/validation/shapeToService.json')
+@app.route('/services/map')
 def shape_to_service():
     fn = 'shapeToService.json'
     sts_path = os.path.join(os.curdir, 'validation', fn)
     return send_file(sts_path, download_name=fn, mimetype='application/json') # os.path.basename(sts_path)
 
 
-@app.route('/tests.json')
+@app.route('/tests')
 def tests():
     tests_path = os.path.join(os.curdir, 'validation', 'tests')
     file_paths = [os.path.join(tests_path, file) for file in sorted(list(os.listdir(tests_path)))]
@@ -61,21 +61,21 @@ def tests():
     return dict(tests=test_data)
 
 
-@app.route('/validation/shex/full.json')
+@app.route('/shex/shapes')
 def shex_shapes():
-    fn = 'full.json'
+    fn = 'full.shex.json'
     shapes_path = os.path.join(os.curdir, 'validation', 'shex', fn)
     return send_file(shapes_path, download_name=fn, mimetype='application/json')
 
 
-@app.route('/validation/shacl/full.shacl')
+@app.route('/shacl/shapes')
 def shacl_shapes_full():
-    fn = 'full.shacl'
+    fn = 'full.shacl.json'
     shacl_path = os.path.join(os.curdir, 'validation', 'shacl', fn)
-    return send_file(shacl_path, download_name=fn, mimetype='text/turtle')
+    return send_file(shacl_path, download_name=fn, mimetype='application/json')
 
 
-@app.route('/validation/shacl/subclasses.ttl')
+@app.route('/shacl/subclasses')
 def shacl_subclasses():
     fn = 'subclasses.ttl'
     subclasses_path = os.path.join(os.curdir, 'validation', 'shacl', fn)
